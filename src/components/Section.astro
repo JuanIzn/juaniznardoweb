@@ -8,17 +8,16 @@ interface Props {
 const { id, number, label, class: className = '' } = Astro.props;
 ---
 
-<section
-  {id}
-  class:list={['py-24 px-6', className]}
->
-  {(number || label) && (
-    <div class="mb-12">
-      <span class="font-mono text-xs uppercase tracking-widest text-[var(--color-muted)]">
-        {number && <span class="text-[var(--color-accent)]">{number} — </span>}
-        {label}
-      </span>
-    </div>
-  )}
-  <slot />
+<section {id} class:list={['py-24 border-t border-[var(--color-border)]', className]}>
+  <div class="max-w-5xl mx-auto px-6" data-animate>
+    {(number || label) && (
+      <div class="mb-12">
+        <span class="font-mono text-xs uppercase tracking-widest text-[var(--color-muted)]">
+          {number && <span class="text-[var(--color-accent)]">{number} — </span>}
+          {label}
+        </span>
+      </div>
+    )}
+    <slot />
+  </div>
 </section>

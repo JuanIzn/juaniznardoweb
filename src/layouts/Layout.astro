@@ -104,5 +104,30 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
         </div>
       </div>
     </footer>
+
+    <!-- Scroll-triggered fade-in for sections -->
+    <script>
+      function initScrollAnimations() {
+        const observer = new IntersectionObserver(
+          (entries) => {
+            entries.forEach((entry) => {
+              if (entry.isIntersecting) {
+                (entry.target as HTMLElement).style.animation = 'fade-up 0.5s ease forwards';
+                observer.unobserve(entry.target);
+              }
+            });
+          },
+          { threshold: 0.1 }
+        );
+
+        document.querySelectorAll('[data-animate]').forEach((el) => {
+          (el as HTMLElement).style.opacity = '0';
+          observer.observe(el);
+        });
+      }
+
+      initScrollAnimations();
+      document.addEventListener('astro:page-load', initScrollAnimations);
+    </script>
   </body>
 </html>
