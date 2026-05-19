@@ -1,0 +1,76 @@
+---
+import StatusIndicator from './StatusIndicator.astro';
+---
+
+<section
+  class="relative min-h-[100svh] flex flex-col justify-center px-6 overflow-hidden"
+  aria-label="Introduction"
+>
+  <!-- Blueprint grid background -->
+  <div
+    class="absolute inset-0 pointer-events-none"
+    aria-hidden="true"
+    style="
+      background-image:
+        linear-gradient(rgba(39,39,45,0.5) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(39,39,45,0.5) 1px, transparent 1px);
+      background-size: 48px 48px;
+      mask-image: radial-gradient(ellipse 70% 60% at 50% 50%, black 0%, transparent 100%);
+    "
+  ></div>
+
+  <!-- Content -->
+  <div class="relative z-10 max-w-5xl mx-auto w-full" style="animation: fade-up 0.6s ease both 0.1s">
+    <div class="mb-8">
+      <StatusIndicator />
+    </div>
+
+    <!-- Name -->
+    <h1 class="font-mono text-5xl sm:text-6xl md:text-7xl font-medium tracking-tight leading-none mb-3">
+      Juan Iznardo<span
+        class="text-[var(--color-accent)]"
+        style="animation: blink 1s step-end infinite"
+        aria-hidden="true"
+      >_</span>
+    </h1>
+
+    <!-- Role -->
+    <p class="font-mono text-xs sm:text-sm uppercase tracking-widest text-[var(--color-muted)] mb-8">
+      Computer Engineer
+    </p>
+
+    <!-- Tagline -->
+    <p class="text-lg sm:text-xl md:text-2xl text-[var(--color-muted)] max-w-md leading-relaxed mb-10">
+      Building systems that work<br class="hidden sm:block" />
+      at every level.
+    </p>
+
+    <!-- CTAs -->
+    <div class="flex flex-wrap items-center gap-4">
+      <a
+        href="#work"
+        class="inline-flex items-center gap-2 font-mono text-sm border border-[var(--color-accent)] text-[var(--color-accent)] px-5 py-2.5 rounded hover:bg-[var(--color-accent-dim)] transition-colors duration-[var(--duration-base)]"
+      >
+        view work
+        <span aria-hidden="true">↓</span>
+      </a>
+      <a
+        href="#contact"
+        class="inline-flex items-center gap-2 font-mono text-sm border border-[var(--color-border)] text-[var(--color-muted)] px-5 py-2.5 rounded hover:border-[var(--color-text)] hover:text-[var(--color-text)] transition-colors duration-[var(--duration-base)]"
+      >
+        contact
+      </a>
+    </div>
+  </div>
+
+  <!-- Scroll hint -->
+  <div
+    class="absolute bottom-8 left-6 max-w-5xl mx-auto"
+    style="animation: fade-up 0.6s ease both 0.6s"
+    aria-hidden="true"
+  >
+    <span class="font-mono text-[10px] uppercase tracking-widest text-[var(--color-muted)] opacity-40">
+      scroll
+    </span>
+  </div>
+</section>

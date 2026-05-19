@@ -1,7 +1,7 @@
 # juaniznardo.com — Personal Portfolio
 
 Personal portfolio for Juan Iznardo (Computer Engineer, Spain). Primary audience: recruiters in the next 6–12 months. Latent capacity for freelance / personal brand. Tone: professional, distinctive, honest about being at the start of his career.
-
+Never use Co-Authored-By: Claude <noreply@anthropic.com> when commiting or anything that shows your name.
 ## Stack
 
 - **Astro** (static-first, islands for interactivity)

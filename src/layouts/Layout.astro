@@ -1,0 +1,108 @@
+---
+import { ClientRouter } from 'astro:transitions';
+import '../styles/global.css';
+
+interface Props {
+  title: string;
+  description?: string;
+}
+
+const {
+  title,
+  description = 'Computer Engineer building systems from the ground up.',
+} = Astro.props;
+
+const canonicalURL = new URL(Astro.url.pathname, Astro.site);
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="canonical" href={canonicalURL} />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+
+    <title>{title}</title>
+    <meta name="description" content={description} />
+
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content={canonicalURL} />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+
+    <meta name="twitter:card" content="summary" />
+    <meta name="twitter:title" content={title} />
+    <meta name="twitter:description" content={description} />
+
+    <ClientRouter />
+  </head>
+
+  <body class="min-h-screen bg-[var(--color-base)] text-[var(--color-text)]">
+    <header
+      class="fixed top-0 left-0 right-0 z-50 h-14 flex items-center border-b border-[var(--color-border)] bg-[var(--color-base)]/90 backdrop-blur-sm"
+      transition:persist
+    >
+      <nav class="w-full max-w-5xl mx-auto px-6 flex items-center justify-between">
+        <a
+          href="/"
+          class="font-mono text-sm font-medium text-[var(--color-text)] hover:text-[var(--color-accent)] transition-colors duration-[var(--duration-fast)]"
+          aria-label="Home"
+        >
+          ji<span class="text-[var(--color-accent)]">.</span>
+        </a>
+
+        <ul class="flex items-center gap-6 list-none m-0 p-0">
+          {[
+            { href: '/#work', label: 'work' },
+            { href: '/#about', label: 'about' },
+            { href: '/now', label: 'now' },
+            { href: '/#contact', label: 'contact' },
+          ].map(({ href, label }) => (
+            <li>
+              <a
+                href={href}
+                class="font-mono text-xs text-[var(--color-muted)] hover:text-[var(--color-text)] transition-colors duration-[var(--duration-fast)]"
+              >
+                {label}
+              </a>
+            </li>
+          ))}
+        </ul>
+      </nav>
+    </header>
+
+    <main class="pt-14">
+      <slot />
+    </main>
+
+    <footer class="border-t border-[var(--color-border)] py-8 px-6">
+      <div class="max-w-5xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-4">
+        <span class="font-mono text-xs text-[var(--color-muted)]">
+          © {new Date().getFullYear()} Juan Iznardo
+        </span>
+
+        <div class="flex items-center gap-6">
+          <a
+            href="https://github.com/JuanIzn"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="font-mono text-xs text-[var(--color-muted)] hover:text-[var(--color-accent)] transition-colors duration-[var(--duration-fast)]"
+            aria-label="GitHub"
+          >
+            github
+          </a>
+          <a
+            href="https://www.linkedin.com/in/juaniznardo"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="font-mono text-xs text-[var(--color-muted)] hover:text-[var(--color-accent)] transition-colors duration-[var(--duration-fast)]"
+            aria-label="LinkedIn"
+          >
+            linkedin
+          </a>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>
