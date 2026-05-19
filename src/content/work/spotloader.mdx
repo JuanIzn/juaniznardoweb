@@ -1,0 +1,26 @@
+---
+title: "spotloader"
+description: "Self-hosted Spotify track downloader. No third-party API required — finds and downloads the best available match via audio fingerprinting."
+status: "complete"
+tech: ["Python", "yt-dlp", "mutagen"]
+github: "https://github.com/JuanIzn/spotloader"
+order: 2
+---
+
+## The problem
+
+Streaming locks your music library to a subscription. I wanted a way to build a local library from Spotify playlists and liked songs — without relying on any third-party service staying online.
+
+## Decisions
+
+**No Spotify API for audio** — Spotify doesn't allow audio download through their API (obviously). The approach: fetch metadata from the Spotify Web API, then find and download the best audio match from YouTube via `yt-dlp`.
+
+**Audio fingerprinting for matching** — title + artist string matching alone produces too many wrong results. Comparing against known metadata (duration, ISRC) significantly improves match accuracy.
+
+**mutagen for tagging** — embeds proper ID3 tags (title, artist, album, artwork) so the downloaded files behave like first-class music files in any player.
+
+## Tradeoffs
+
+Accuracy is ~95%+ for mainstream tracks, lower for live recordings or obscure releases. The solution: a flag to review low-confidence matches manually before accepting.
+
+The tool is intentionally single-user / self-hosted. Not a service, not a webapp — just a script you run on your own machine for personal use.

@@ -1,0 +1,26 @@
+---
+title: "Game Boy Emulator"
+description: "Low-level systems project: implementing a Game Boy emulator from scratch in C to understand how hardware works at the instruction level."
+status: "in-progress"
+tech: ["C", "SDL2", "CMake"]
+github: "https://github.com/JuanIzn"
+order: 1
+---
+
+## The problem
+
+I wanted to go deep on low-level systems — not just "how does memory work" conceptually, but actually building something that executes real machine code. A Game Boy emulator is a well-scoped target: real hardware documentation exists (the Pan Docs), the CPU is a variant of the Z80, and the end result is verifiable (you can run a test ROM).
+
+## Decisions
+
+**Language: C** — not Rust, not C++. The constraint forces you to reason about memory manually, which is the point. No abstractions hiding the interesting parts.
+
+**Starting with the CPU** — before touching graphics or audio, I got the Sharp LR35902 CPU running correctly. Every opcode implemented and tested against known-good results from the test ROMs.
+
+**SDL2 for display** — minimal cross-platform window + pixel buffer. Zero overhead on the emulation loop itself.
+
+## Status
+
+CPU implementation is underway. Memory bus wired up. Next: PPU (Pixel Processing Unit) for rendering the LCD.
+
+The project is as much about learning as about shipping — the goal is a working emulator that can run *Tetris*, not a cycle-accurate research-grade emulator.
