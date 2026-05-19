@@ -1,0 +1,30 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630">
+  <rect width="1200" height="630" fill="#0d0d10"/>
+
+  <!-- Grid lines -->
+  <defs>
+    <pattern id="grid" width="48" height="48" patternUnits="userSpaceOnUse">
+      <path d="M 48 0 L 0 0 0 48" fill="none" stroke="#27272d" stroke-width="0.5" opacity="0.5"/>
+    </pattern>
+    <radialGradient id="fade" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="white" stop-opacity="1"/>
+      <stop offset="100%" stop-color="white" stop-opacity="0"/>
+    </radialGradient>
+    <mask id="gridmask">
+      <rect width="1200" height="630" fill="url(#fade)"/>
+    </mask>
+  </defs>
+  <rect width="1200" height="630" fill="url(#grid)" mask="url(#gridmask)"/>
+
+  <!-- Accent line -->
+  <rect x="80" y="280" width="3" height="70" fill="#22d3ee"/>
+
+  <!-- Name -->
+  <text x="108" y="336" font-family="monospace" font-size="72" font-weight="500" fill="#f5f5f4" letter-spacing="-1">Juan Iznardo</text>
+
+  <!-- Role -->
+  <text x="110" y="376" font-family="monospace" font-size="18" fill="#71717a" letter-spacing="4" text-transform="uppercase">COMPUTER ENGINEER</text>
+
+  <!-- Domain -->
+  <text x="110" y="500" font-family="monospace" font-size="16" fill="#22d3ee" opacity="0.8">juaniznardo.com</text>
+</svg>

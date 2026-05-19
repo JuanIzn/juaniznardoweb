@@ -16,6 +16,21 @@ const { title, description, tech, github, demo, status } = entry.data;
 ---
 
 <Layout title={`${title} — Juan Iznardo`} description={description}>
+  <script type="application/ld+json" set:html={JSON.stringify({
+    "@context": "https://schema.org",
+    "@type": "SoftwareSourceCode",
+    "name": title,
+    "description": description,
+    "programmingLanguage": tech,
+    "author": {
+      "@type": "Person",
+      "name": "Juan Iznardo",
+      "url": "https://juaniznardo.com"
+    },
+    ...(github ? { "codeRepository": github } : {}),
+    ...(demo ? { "url": demo } : {})
+  })} />
+
   <article class="max-w-3xl mx-auto px-6 py-16">
     <!-- Back link -->
     <a
