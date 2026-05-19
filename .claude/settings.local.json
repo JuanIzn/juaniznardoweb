@@ -1,0 +1,23 @@
+{
+  "permissions": {
+    "allow": [
+      "WebSearch",
+      "WebFetch(domain:github.com)",
+      "WebFetch(domain:www.awwwards.com)",
+      "Bash(CI=true npm create *)",
+      "Bash(git add *)",
+      "Bash(git commit -m ' *)",
+      "Bash(npm install *)",
+      "Bash(npm run *)",
+      "Bash(git rm *)",
+      "Bash(git commit -m 'feat: global layout, hero section, content collection config *)",
+      "Bash(FILTER_BRANCH_SQUELCH_WARNING=1 git filter-branch *)",
+      "Bash(git stash *)",
+      "Bash(git push *)",
+      "Bash(git commit -m 'feat: selected work section with case studies *)",
+      "Bash(git commit -m *)",
+      "Bash(npx astro *)",
+      "Bash(git reset *)"
+    ]
+  }
+}
