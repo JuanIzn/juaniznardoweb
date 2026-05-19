@@ -1,0 +1,54 @@
+---
+import Section from './Section.astro';
+import StatusIndicator from './StatusIndicator.astro';
+---
+
+<Section id="contact" number="03" label="contact">
+  <div class="max-w-5xl mx-auto">
+    <div class="max-w-lg">
+      <p class="text-sm text-[var(--color-muted)] leading-relaxed mb-8">
+        I'm finishing my degree and open to junior engineering roles, internships,
+        and selective freelance work. If you have something interesting, reach out.
+      </p>
+
+      <div class="mb-8">
+        <StatusIndicator />
+      </div>
+
+      <!-- Links -->
+      <ul class="space-y-3">
+        <li>
+          <a
+            href="mailto:hello@juaniznardo.com"
+            class="inline-flex items-center gap-3 font-mono text-sm text-[var(--color-muted)] hover:text-[var(--color-accent)] transition-colors duration-[var(--duration-fast)] group"
+          >
+            <span class="text-[var(--color-accent)] opacity-60 group-hover:opacity-100 transition-opacity">email</span>
+            hello@juaniznardo.com
+          </a>
+        </li>
+        <li>
+          <a
+            href="https://www.linkedin.com/in/juaniznardo"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="inline-flex items-center gap-3 font-mono text-sm text-[var(--color-muted)] hover:text-[var(--color-accent)] transition-colors duration-[var(--duration-fast)] group"
+          >
+            <span class="text-[var(--color-accent)] opacity-60 group-hover:opacity-100 transition-opacity">linkedin</span>
+            linkedin.com/in/juaniznardo
+          </a>
+        </li>
+        <li>
+          <a
+            href="https://github.com/JuanIzn"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="inline-flex items-center gap-3 font-mono text-sm text-[var(--color-muted)] hover:text-[var(--color-accent)] transition-colors duration-[var(--duration-fast)] group"
+          >
+            <span class="text-[var(--color-accent)] opacity-60 group-hover:opacity-100 transition-opacity">github</span>
+            github.com/JuanIzn
+          </a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</Section>
