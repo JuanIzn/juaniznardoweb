@@ -1,0 +1,16 @@
+---
+interface Props {
+  status?: 'available' | 'busy';
+  label?: string;
+}
+const { status = 'available', label = 'open to opportunities' } = Astro.props;
+const color = status === 'available' ? 'var(--color-accent)' : '#f59e0b';
+---
+
+<span class="inline-flex items-center gap-2 font-mono text-xs text-[var(--color-muted)]">
+  <span
+    class="inline-block w-1.5 h-1.5 rounded-full"
+    style={`background-color: ${color}; animation: pulse-dot 2s ease-in-out infinite;`}
+  ></span>
+  {label}
+</span>

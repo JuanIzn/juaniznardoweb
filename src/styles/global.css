@@ -1,1 +1,92 @@
 @import "tailwindcss";
+@import "@fontsource-variable/geist";
+@import "@fontsource/geist-mono";
+
+@theme {
+  /* Colors */
+  --color-base: #0d0d10;
+  --color-surface: #111114;
+  --color-surface-2: #1a1a1f;
+  --color-border: #27272d;
+  --color-text: #f5f5f4;
+  --color-muted: #71717a;
+  --color-accent: #22d3ee;
+  --color-accent-dim: #22d3ee26;
+
+  /* Fonts */
+  --font-sans: "Geist Variable", ui-sans-serif, system-ui, sans-serif;
+  --font-mono: "Geist Mono", ui-monospace, "JetBrains Mono", monospace;
+
+  /* Spacing & sizing */
+  --radius-sm: 0.25rem;
+  --radius-md: 0.5rem;
+
+  /* Animation durations */
+  --duration-fast: 150ms;
+  --duration-base: 250ms;
+  --duration-slow: 400ms;
+}
+
+/* Base */
+html {
+  background-color: var(--color-base);
+  color: var(--color-text);
+  font-family: var(--font-sans);
+  font-feature-settings: "ss01", "ss02", "cv01";
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  scroll-behavior: smooth;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+/* Selection */
+::selection {
+  background-color: var(--color-accent-dim);
+  color: var(--color-accent);
+}
+
+/* Focus visible */
+:focus-visible {
+  outline: 2px solid var(--color-accent);
+  outline-offset: 3px;
+  border-radius: var(--radius-sm);
+}
+
+/* Pulsing status dot */
+@keyframes pulse-dot {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.3; }
+}
+
+/* Typing cursor blink */
+@keyframes blink {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0; }
+}
+
+/* Subtle fade-in for sections */
+@keyframes fade-up {
+  from {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Respect reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+  html {
+    scroll-behavior: auto;
+  }
+}
