@@ -3,6 +3,8 @@ dist/
 # generated types
 .astro/
 
+.antigravitycli
+
 # dependencies
 node_modules/
 
