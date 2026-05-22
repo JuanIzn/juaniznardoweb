@@ -1,0 +1,31 @@
+---
+title: "Home Server Infrastructure"
+description: "Single-node Proxmox server running isolated workloads — self-hosted services, security tooling, and local AI — with defined trust boundaries between VMs and containers."
+status: "in-progress"
+tech: ["Proxmox", "Linux", "Docker", "Tailscale", "Cloudflare Tunnels", "Ollama"]
+order: 3
+---
+
+## The problem
+
+Running multiple services with fundamentally different security profiles on a single machine without compromising the home network. Some workloads are exposed to the internet; others — security tooling, personal data — should never share a trust boundary with them.
+
+## Decisions
+
+**Proxmox as the hypervisor** — VMs and LXC containers on the same host, isolated at the hypervisor level. The critical property: a compromised public-facing container can't reach private services or the host. Docker alone on Linux was an option, but Proxmox gives hardware-level isolation for VMs and enough namespace separation to keep workloads genuinely independent.
+
+**Workloads separated by trust level** — exposed services (Nextcloud, Jellyfin, own bots), security tooling (Kali), home automation (Home Assistant), and AI inference (Ollama) each run in their own isolated environment. Docker handles service orchestration inside LXC containers; VMs go to workloads that need full kernel isolation.
+
+**Cloudflare Tunnels for public services** — no inbound firewall ports. Traffic flows out to Cloudflare's edge only. A misconfigured service can't become an entry point into the home network because there's no direct route in.
+
+**Tailscale for private access** — remote access from anywhere without running VPN infrastructure. Zero-trust model: devices authenticate individually, no blanket network trust granted.
+
+**Ollama for local AI inference** — self-hosted model serving for personal applications, with the homelab also acting as a proxy for external AI API calls when needed. Keeps inference costs down and data off third-party servers.
+
+**Automated snapshots** — Proxmox Backup Server with scheduled snapshots. Single node means no redundancy, so backups are the only safety net.
+
+## Tradeoffs
+
+Single node means no high availability — hardware failure takes everything down. Accepted tradeoff for home use; the design acknowledges the risk rather than hiding it.
+
+The N100's resource ceiling drove the container-first approach: lightweight services run as Docker containers in LXC; heavier or isolation-critical workloads get full VMs. Hardware constraint turned into a forcing function for better resource allocation.
