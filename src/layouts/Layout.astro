@@ -76,23 +76,43 @@ const ogImageURL = new URL(ogImage, Astro.site);
           ji<span class="text-[var(--color-accent)]">.</span>
         </a>
 
-        <ul class="flex items-center gap-6 list-none m-0 p-0">
-          {[
-            { href: '/#work', label: 'work' },
-            { href: '/#about', label: 'about' },
-            { href: '/now', label: 'now' },
-            { href: '/#contact', label: 'contact' },
-          ].map(({ href, label }) => (
-            <li>
-              <a
-                href={href}
-                class="font-mono text-xs text-[var(--color-muted)] hover:text-[var(--color-text)] transition-colors duration-[var(--duration-fast)]"
-              >
-                {label}
-              </a>
-            </li>
-          ))}
-        </ul>
+        <div class="flex items-center gap-6">
+          <ul class="flex items-center gap-6 list-none m-0 p-0">
+            {[
+              { href: '/#work', label: 'work' },
+              { href: '/#about', label: 'about' },
+              { href: '/#contact', label: 'contact' },
+            ].map(({ href, label }) => (
+              <li>
+                <a
+                  href={href}
+                  class="font-mono text-xs text-[var(--color-muted)] hover:text-[var(--color-text)] transition-colors duration-[var(--duration-fast)]"
+                >
+                  {label}
+                </a>
+              </li>
+            ))}
+          </ul>
+
+          <div class="hidden sm:flex items-center gap-4 border-l border-[var(--color-border)] pl-6">
+            <a
+              href="https://github.com/JuanIzn"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="font-mono text-xs text-[var(--color-muted)] hover:text-[var(--color-accent)] transition-colors duration-[var(--duration-fast)]"
+            >
+              github
+            </a>
+            <a
+              href="https://www.linkedin.com/in/juan-jes%C3%BAs-iznardo-313429326/"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="font-mono text-xs text-[var(--color-muted)] hover:text-[var(--color-accent)] transition-colors duration-[var(--duration-fast)]"
+            >
+              linkedin
+            </a>
+          </div>
+        </div>
       </nav>
     </header>
 

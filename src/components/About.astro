@@ -1,65 +1,25 @@
 ---
 import Section from './Section.astro';
-
-const stack = ['C', 'Python', 'JavaScript', 'TypeScript', 'SQL'];
-const interests = ['Low-level systems', 'Machine learning', 'Web scraping', 'Automation'];
 ---
 
 <Section id="about" number="02" label="about">
-  <div class="grid grid-cols-1 lg:grid-cols-2 gap-16">
-    <!-- Bio -->
-    <div>
-      <h2 class="font-mono text-base font-medium text-[var(--color-text)] mb-5">
-        Juan Iznardo
-      </h2>
-      <div class="space-y-4 text-sm text-[var(--color-muted)] leading-relaxed">
-        <p>
-          Computer Engineer finishing my degree in Spain. Before committing to a specialization,
-          I'm deliberately exploring across the stack — from low-level systems to machine
-          learning — to understand where I want to go deep.
-        </p>
-        <p>
-          Currently building a Game Boy emulator in C to learn how CPUs and memory actually
-          work. Also learning web scraping as a practical freelance skill.
-        </p>
-        <p>
-          I'm interested in the business side of things too — how products get built,
-          how they reach people, and what makes them worth building.
-        </p>
-      </div>
-    </div>
-
-    <!-- Tech + Outside code -->
-    <div class="space-y-10">
-      <!-- Stack -->
-      <div>
-        <p class="font-mono text-xs uppercase tracking-widest text-[var(--color-muted)] mb-4">
-          languages & tools
-        </p>
-        <ul class="flex flex-wrap gap-2">
-          {stack.map((item) => (
-            <li class="font-mono text-xs px-2.5 py-1 border border-[var(--color-border)] rounded text-[var(--color-muted)]">
-              {item}
-            </li>
-          ))}
-        </ul>
-      </div>
-
-      <!-- Interests -->
-      <div>
-        <p class="font-mono text-xs uppercase tracking-widest text-[var(--color-muted)] mb-4">
-          what I'm exploring
-        </p>
-        <ul class="space-y-1.5">
-          {interests.map((item) => (
-            <li class="flex items-center gap-2 text-sm text-[var(--color-muted)]">
-              <span class="text-[var(--color-accent)] font-mono text-xs">→</span>
-              {item}
-            </li>
-          ))}
-        </ul>
-      </div>
-
+  <div class="max-w-2xl">
+    <h2 class="font-mono text-base font-medium text-[var(--color-text)] mb-5">
+      Juan Iznardo
+    </h2>
+    <div class="space-y-4 text-sm text-[var(--color-muted)] leading-relaxed">
+      <p>
+        Computer Engineer finishing my degree in Spain. Before committing to a specialization,
+        I'm deliberately exploring across the stack — from low-level systems to infrastructure
+        — to understand where I want to go deep.
+      </p>
+      <p>
+        Currently building a Game Boy emulator in C to learn how CPUs and memory actually work.
+      </p>
+      <p>
+        I'm interested in the business side of things too — how products get built,
+        how they reach people, and what makes them worth building.
+      </p>
     </div>
   </div>
 </Section>
